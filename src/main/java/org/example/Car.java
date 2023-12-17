@@ -1,11 +1,14 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Car {
-    public String name;
+
     public Manufactory manufactory;
     public String model;
-    public Market market;
+    public List<Market> marketList = new ArrayList<>();
     public String getName() {
-        return name + " " + model;
+        return getName() + " " + model;
     }
 }
