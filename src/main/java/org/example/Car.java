@@ -2,11 +2,17 @@ package org.example;
 
 public class Car {
 
+    public String getName() {
+        return name + " " + model;
+    }
+
     public String name;
     public enum Manufactory{
-        Japan,
-        American,
-        Europian
+        Honda,
+        Toyota,
+        BMW,
+        Mercedes,
+        VAZ
     }
     public String model;
     public enum Market{
