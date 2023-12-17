@@ -7,17 +7,10 @@ public class Car {
     }
 
     public String name;
-    public enum Manufactory{
-        Honda,
-        Toyota,
-        BMW,
-        Mercedes,
-        VAZ
-    }
+    public Manufactory manufactory;
+
     public String model;
-    public enum Market{
-        JDM,
-        USDM,
-        EDM
-    }
+    public Market market;
+
+
 }
