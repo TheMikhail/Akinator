@@ -23,7 +23,6 @@ public class Main {
         car3.manufactory = Manufactory.BMW;
         car3.marketList = Collections.singletonList(Market.EDM);
 
-        System.out.println(car1.getName()+"\n"+ car2.getName()+"\n"+ car3.getName());
         Scanner sc = new Scanner(System.in);
         System.out.println("Вы хотите Японскую машину?");
 
