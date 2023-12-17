@@ -6,8 +6,6 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Hello world!");
-
         Car car1 = new Car();
         car1.model = "Civic";
         car1.manufactory = Manufactory.HONDA;
@@ -38,8 +36,8 @@ public class Main {
         car5.marketList = Collections.singletonList(Market.EDM);
         car5.gearbox = "manual";
         Scanner sc = new Scanner(System.in);
+        
         System.out.println("Вы хотите Японскую машину?");
-
         if (sc.nextLine().equals("да")){
             System.out.println("Вы хотите автомобиль на механической КПП?");
             if(sc.nextLine().equals("да"))

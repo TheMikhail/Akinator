@@ -9,6 +9,6 @@ public class Car {
     public String gearbox;
     public List<Market> marketList = new ArrayList<>();
     public String getName() {
-        return manufactory + " " + model;
+        return "Вам подоходит: " + manufactory + " " + model;
     }
 }
