@@ -8,6 +8,6 @@ public class Car {
     public String model;
     public List<Market> marketList = new ArrayList<>();
     public String getName() {
-        return manufactory + model;
+        return manufactory + " " + model;
     }
 }
