@@ -1,7 +1,11 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,11 +38,14 @@ public class Main {
         car5.model = "w140";
         car5.manufactory = Manufactory.MERCEDES;
         car5.marketList = Collections.singletonList(Market.EDM);
-        car5.gearbox = "manual";
+        car5.gearbox = "automatic";
         Scanner sc = new Scanner(System.in);
-        
+
+        List<Car> carfilter = List.of(car1,car2,car3,car4,car5);
         System.out.println("Вы хотите Японскую машину?");
         if (sc.nextLine().equals("да")){
+            carfilter.stream().filter(car -> car.marketList.contains(Market.JDM)).forEach(car->System.out.println(car.getName()));
+
             System.out.println("Вы хотите автомобиль на механической КПП?");
             if(sc.nextLine().equals("да"))
                 System.out.println(car1.getName());
