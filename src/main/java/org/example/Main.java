@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -42,19 +43,23 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         List<Car> carfilter = List.of(car1,car2,car3,car4,car5);
-        System.out.println("Вы хотите Японскую машину?");
+
+       QuestionJDM questionJDM = new QuestionJDM();
+       QuestionGearboxManual questionGearboxManual= new QuestionGearboxManual();
+
+        System.out.println(questionJDM.description());
         if (sc.nextLine().equals("да")){
-            List<Car> jdmCar = carfilter.stream().filter(car -> car.marketList.contains(Market.JDM)).collect(Collectors.toList());
+            List<Car> jdmCar = carfilter.stream().filter(questionJDM.filter()).toList();
 
-            for(Car car : jdmCar){
-                System.out.println(car.getName());
+            System.out.println(questionGearboxManual.description());
+            if(sc.nextLine().equals("да")){
+                List<Car> manualCar = (List<Car>) jdmCar.stream().filter(questionGearboxManual.filter()).collect(Collectors.toList());
+                for(Car car : manualCar){
+                    System.out.println(car.getName());
+                }
+
+
             }
-
-            System.out.println("Вы хотите автомобиль на механической КПП?");
-            if(sc.nextLine().equals("да"))
-
-                jdmCar.stream().filter(car -> car.gearbox.contains("manual")).forEach(car->System.out.println(car.getName()));
-
             else
                 System.out.println(car4.getName());
         }
