@@ -44,11 +44,17 @@ public class Main {
         List<Car> carfilter = List.of(car1,car2,car3,car4,car5);
         System.out.println("Вы хотите Японскую машину?");
         if (sc.nextLine().equals("да")){
-            carfilter.stream().filter(car -> car.marketList.contains(Market.JDM)).forEach(car->System.out.println(car.getName()));
+            List<Car> jdmCar = carfilter.stream().filter(car -> car.marketList.contains(Market.JDM)).collect(Collectors.toList());
+
+            for(Car car : jdmCar){
+                System.out.println(car.getName());
+            }
 
             System.out.println("Вы хотите автомобиль на механической КПП?");
             if(sc.nextLine().equals("да"))
-                System.out.println(car1.getName());
+
+                jdmCar.stream().filter(car -> car.gearbox.contains("manual")).forEach(car->System.out.println(car.getName()));
+
             else
                 System.out.println(car4.getName());
         }
